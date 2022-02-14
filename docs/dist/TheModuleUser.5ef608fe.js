@@ -1,0 +1,2 @@
+import{a as m,L as t}from"./UserHook.bdaf98fc.js";import{D as n}from"./Dynamic.4af3e651.js";import{U as d}from"./UserCardMini.6bc24ab7.js";import{a as c,F as f,j as s}from"./index.0fda6833.js";import"./vendor.c7380184.js";import"./UsersSrv.8c88fece.js";function x(r){const{params:{index:a,path:o}}=r,[e]=m(a),i=o.toLowerCase();return c(f,{children:[s("div",{className:"card min-h-3 mb-3",children:e.username?s(d,{item:e}):s(t,{message:"Cargando Usuario ...",state:!0})}),s(n,{index:a,module:i})]})}export{x as default};
+//# sourceMappingURL=TheModuleUser.5ef608fe.js.map
