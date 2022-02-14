@@ -9,7 +9,7 @@ export default defineConfig({
     port: 3003,
     open: true
   },
-  // base:'/OpenUser/',
+  base:'/OpenUser/',
   build:{
     outDir:'docs', // dist to docs
     assetsDir:'dist', // assets to dist 
