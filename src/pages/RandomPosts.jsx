@@ -16,7 +16,7 @@ export default function RandomPosts({limit}) {
                   {
                      posts.map(({ userId, id, title }, idx) => {
                         return  (<div className="card p-2 border-primary mb-3 card-random" 
-                                      key={idx} onClick={() => setLocation(`/user/${userId}/post/${id}`)}>
+                                      key={idx} onClick={() => setLocation(`/OpenUser/user/${userId}/post/${id}`)}>
                                     <header className="d-flex justify-content-between">
                                        <span> <i className="bx bx-food-menu"></i> : { parsedNumberId(id) }</span>
                                        <span> <i className="bx bx-user"></i> : { parsedNumberId(userId) }</span>

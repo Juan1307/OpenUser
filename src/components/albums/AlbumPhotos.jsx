@@ -42,13 +42,22 @@ export default function AlbumPhotos({data}){
       //usar async await en use effect hace bugs de montado :l
       getAlbumPhotos(id).then((data) => {
          setPhotos(data);
-         
-         const { dataArray, dataPags } = createPagination(data);
-            setDatPart(dataArray);
-            setDatPags(dataPags);
+
+            // init pagination 
+            setDatPart(() => {
+               const { dataArray } =  createPagination(data);
+               return dataArray;
+            });
+            setDatPags(() => {
+               const { dataPags } =  createPagination(data);
+               return dataPags;
+            });
             setInitialPag(0);
 
-            setPhotosFil(() => dataArray[0]);
+            setPhotosFil(() => {
+               const { dataArray } =  createPagination(data);
+               return dataArray[0];
+            });
 
       },(err) => console.error(err.status));
       

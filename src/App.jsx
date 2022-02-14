@@ -1,7 +1,9 @@
 import './App.css';
 
 import React, { Suspense,  useState, useRef, useEffect } from 'react';
-import { Route, Switch, useLocation } from 'wouter';
+
+import { Router, Route, Switch, useLocation } from 'wouter';
+
 import { CSSTransition  } from 'react-transition-group';
 
 const RandomPosts = React.lazy(() => import('./pages/RandomPosts') );
@@ -60,6 +62,7 @@ function App() {
 
   const handleToScroll = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
+
   return (
     <>
       <CSSTransition appear={true} in={true} timeout={1000} 
@@ -70,7 +73,7 @@ function App() {
           <header className="d-flex justify-content-between align-items-center">
             <div className="App-title">
               <h1 className="App-title-text display-3 mb-0"
-                  onClick={() => setLocation('/') }>
+                  onClick={() => setLocation('/OpenUser') }>
                 Demo Open User
               </h1>
               <p>Una demo que provee datos abiertos de APIs publicas como :&nbsp;
@@ -91,38 +94,40 @@ function App() {
           {/* Main content */}
           <section className="row">
             <section className="col-12 col-sm-7 col-md-8 col-lg-9">
-                
-              <Switch>
-                <Route path="/">  
-                  <Suspense fallback={null}>
-                    <TheListUsers/>
-                  </Suspense>  
-                </Route>
+              
+              <Router base="/OpenUser">
+                <Switch>
+                  <Route path="/">  
+                    <Suspense fallback={null}>
+                      <TheListUsers/>
+                    </Suspense>  
+                  </Route>
 
-                <Route path="/user/:index">
-                  {params => <Suspense fallback={null}> 
-                                <TheUserMain params={params}/>
-                              </Suspense> }
-                </Route>
-                
-                <Route path="/user/:index/:path">
-                  {params => <Suspense fallback={null}> 
-                                <TheModuleUser params={params}/>
-                             </Suspense>}
-                </Route>
+                  <Route path="/user/:index">
+                    {params => <Suspense fallback={null}> 
+                                  <TheUserMain params={params}/>
+                                </Suspense> }
+                  </Route>
+                  
+                  <Route path="/user/:index/:path">
+                    {params => <Suspense fallback={null}> 
+                                  <TheModuleUser params={params}/>
+                               </Suspense>}
+                  </Route>
 
-                <Route path="/user/:index/post/:sindex">
-                  {params => <Suspense fallback={null}> 
-                                <ThePostUser params={params}/>
-                             </Suspense>}
-                </Route>
+                  <Route path="/user/:index/post/:sindex">
+                    {params => <Suspense fallback={null}> 
+                                  <ThePostUser params={params}/>
+                               </Suspense>}
+                  </Route>
 
-                <Route path="/:rest*">
-                  {() => <Suspense fallback={null}>
-                            <TheListUsers/>
-                          </Suspense>}
-                </Route>
-              </Switch>
+                  <Route path="/:rest*">
+                    {() => <Suspense fallback={null}>
+                              <TheListUsers/>
+                            </Suspense>}
+                  </Route>
+                </Switch>
+               </Router>
 
               {/*<Route path="/user/:index/posts/:sindex" component={TheModuleUser} />*/}
             </section>
