@@ -2,6 +2,8 @@
 
 Esta es una aplicacion, que obtiene datos de una Api pública [JSON Placeholder](https://jsonplaceholder.typicode.com/).
 
+[VER DEMo](https://juan1307.github.io/OpenUser/).
+
 ### Recursos utilizados
 
 * Bootstrap 5.

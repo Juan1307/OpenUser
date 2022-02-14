@@ -9,7 +9,7 @@ export default defineConfig({
     port: 3003,
     open: true
   },
-  base:'/OpenUser/',
+  base:'/OpenUser/', //base path here and the wouter config app --- mmss 
   build:{
     outDir:'docs', // dist to docs
     assetsDir:'dist', // assets to dist 
